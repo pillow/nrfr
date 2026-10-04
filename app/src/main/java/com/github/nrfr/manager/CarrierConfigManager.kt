@@ -12,6 +12,9 @@ import com.github.nrfr.model.SimCardInfo
 import rikka.shizuku.ShizukuBinderWrapper
 
 object CarrierConfigManager {
+    // Shizuku invokes this service as the shell UID. Persistent overrides require phone, root, or system.
+    private const val PERSISTENT_OVERRIDE = false
+
     fun getSimCards(context: Context): List<SimCardInfo> {
         val simCards = mutableListOf<SimCardInfo>()
         val subId1 = SubscriptionManager.getSubId(0)
@@ -117,6 +120,6 @@ object CarrierConfigManager {
                     .get()
             )
         )
-        carrierConfigLoader.overrideConfig(subId, bundle, true)
+        carrierConfigLoader.overrideConfig(subId, bundle, PERSISTENT_OVERRIDE)
     }
 }

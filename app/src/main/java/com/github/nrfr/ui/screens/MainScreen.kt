@@ -184,7 +184,7 @@ fun MainScreen(onShowAbout: () -> Unit) {
                             countryCode,
                             carrierName
                         )
-                        Toast.makeText(context, "设置已保存", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(context, "设置已生效，重启后失效", Toast.LENGTH_SHORT).show()
                         refreshTrigger += 1
                     } catch (e: Exception) {
                         Toast.makeText(context, "保存失败: ${e.message}", Toast.LENGTH_SHORT).show()
